@@ -2,10 +2,6 @@ package com.homework.request;
 
 import java.util.Map;
 
-/**
- * Created by Leo on 2017/8/26.
- */
-
 public interface Request {
 
     enum Method {
@@ -30,8 +26,6 @@ public interface Request {
     void onRequestSuccess(String response);
 
     void onRequestFail(RequestException exception);
-
-    void request(Object tag);
 
     interface RequestListener<E> {
 
