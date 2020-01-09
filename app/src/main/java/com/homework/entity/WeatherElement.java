@@ -8,10 +8,10 @@ import java.util.List;
 
 public class WeatherElement implements Serializable {
     @SerializedName("elementName")
-    String elementName;
+    private String elementName;
 
     @SerializedName("time")
-    List<WeatherTime> time;
+    private List<WeatherTime> time;
 
     public String getElementName() {
         return elementName;

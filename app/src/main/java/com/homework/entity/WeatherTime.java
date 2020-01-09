@@ -1,18 +1,37 @@
 package com.homework.entity;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
-
-public class WeatherTime implements Serializable {
+public class WeatherTime implements Parcelable {
     @SerializedName("startTime")
-    String startTime;
+    private String startTime;
 
     @SerializedName("endTime")
-    String endTime;
+    private String endTime;
 
     @SerializedName("parameter")
-    WeatherParameter parameter;
+    private WeatherParameter parameter;
+
+    private WeatherTime(Parcel parcel) {
+        startTime = parcel.readString();
+        endTime = parcel.readString();
+        parameter = (WeatherParameter) parcel.readSerializable();
+    }
+
+    public static final Parcelable.Creator<WeatherTime> CREATOR = new
+            Parcelable.Creator<WeatherTime>() {
+                public WeatherTime createFromParcel(Parcel in) {
+                    return new WeatherTime(in);
+                }
+
+                public WeatherTime[] newArray(int size) {
+                    return new WeatherTime[size];
+                }
+            };
+
 
     public String getStartTime() {
         return startTime;
@@ -24,5 +43,17 @@ public class WeatherTime implements Serializable {
 
     public WeatherParameter getParameter() {
         return parameter;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(startTime);
+        parcel.writeString(endTime);
+        parcel.writeSerializable(parameter);
     }
 }

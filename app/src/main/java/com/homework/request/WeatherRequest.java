@@ -1,7 +1,5 @@
 package com.homework.request;
 
-import android.util.Log;
-
 import com.google.gson.Gson;
 import com.homework.entity.WeatherEntity;
 
@@ -30,20 +28,20 @@ public class WeatherRequest implements Request {
 
     @Override
     public String getUrl() {
-        StringBuffer servicePath = new StringBuffer(ServicePaths.WEATHER);
+        StringBuilder stringBuilder = new StringBuilder(ServicePaths.WEATHER);
 
         try {
-            String locationName = URLEncoder.encode("臺北市","UTF-8");
-            servicePath.append("locationName=").append(locationName);
+            String locationName = URLEncoder.encode("臺北市", "UTF-8");
+            stringBuilder.append("locationName=").append(locationName);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        return servicePath.toString();
+        return stringBuilder.toString();
     }
 
     @Override
     public Map<String, String> getHeaders() {
-        Map<String, String> header = new HashMap<String, String>();
+        Map<String, String> header = new HashMap<>();
         header.put("Authorization", "CWB-A3B99CCF-B140-4383-BA90-18140C4578E3");
         return header;
     }
@@ -60,7 +58,6 @@ public class WeatherRequest implements Request {
 
     @Override
     public void onRequestSuccess(String response) {
-        Log.i("zxcv","a:"+response);
         Gson gson = new Gson();
         WeatherEntity weatherEntity = gson.fromJson(response, WeatherEntity.class);
         listener.onRequestSuccess(weatherEntity);

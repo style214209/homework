@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="detail_item_size">60dp</dimen>
+    <dimen name="recycleView_item_height">200dp</dimen>
+</resources>

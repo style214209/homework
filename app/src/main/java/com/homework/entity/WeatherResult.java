@@ -7,10 +7,10 @@ import java.util.List;
 
 public class WeatherResult implements Serializable {
     @SerializedName("resource_id")
-    String resource_id;
+    private String resource_id;
 
     @SerializedName("fields")
-    List<WeatherField> fields;
+    private List<WeatherField> fields;
 
     public String getResource_id() {
         return resource_id;

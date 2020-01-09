@@ -6,13 +6,13 @@ import java.io.Serializable;
 
 public class WeatherEntity implements Serializable {
     @SerializedName("success")
-    String success;
+    private String success;
 
     @SerializedName("result")
-    WeatherResult result;
+    private WeatherResult result;
 
     @SerializedName("records")
-    WeatherRecords records;
+    private WeatherRecords records;
 
     public String getSuccess() {
         return success;

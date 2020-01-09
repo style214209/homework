@@ -6,9 +6,9 @@ import java.io.Serializable;
 
 public class WeatherField implements Serializable {
     @SerializedName("id")
-    String id;
+    private String id;
     @SerializedName("type")
-    String type;
+    private String type;
 
     public String getId() {
         return id;

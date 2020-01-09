@@ -6,13 +6,13 @@ import java.io.Serializable;
 
 public class WeatherParameter implements Serializable {
     @SerializedName("parameterName")
-    String parameterName;
+    private String parameterName;
 
     @SerializedName("parameterValue")
-    String parameterValue;
+    private String parameterValue;
 
     @SerializedName("parameterUnit")
-    String parameterUnit;
+    private String parameterUnit;
 
     public String getParameterName() {
         return parameterName;

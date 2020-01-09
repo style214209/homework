@@ -7,10 +7,10 @@ import java.util.List;
 
 public class WeatherRecords implements Serializable {
     @SerializedName("datasetDescription")
-    String datasetDescription;
+    private String datasetDescription;
 
     @SerializedName("location")
-    List<WeatherLocation> location;
+    private List<WeatherLocation> location;
 
     public String getDatasetDescription() {
         return datasetDescription;
